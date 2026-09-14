@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-agent incident reporting gap</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <h1 id="site-title"></h1>
+      <button id="lang-toggle" class="lang-toggle" type="button"></button>
+    </div>
+    <p id="site-subtitle" class="subtitle"></p>
+    <p id="site-research" class="research"></p>
+    <p id="site-asof" class="asof"></p>
+  </header>
+
+  <main>
+    <!-- Featured card: a standalone block, trivial to move. Currently above the
+         grid so the key finding leads; could sit after the legend or the table. -->
+    <section id="featured-section" class="band" aria-labelledby="featured-heading">
+      <h2 id="featured-heading"></h2>
+      <p id="featured-intro" class="section-intro"></p>
+      <div id="featured"></div>
+    </section>
+
+    <!-- One band for the legend, the case×channel matrix, and the detail panel:
+         they read as a single map, so they share one category colour. -->
+    <div id="map-section" class="band">
+      <section id="legend-section" aria-labelledby="legend-heading">
+        <h2 id="legend-heading"></h2>
+        <p id="legend-intro" class="section-intro"></p>
+        <ul id="legend" class="legend"></ul>
+      </section>
+
+      <section id="matrix-section" aria-labelledby="matrix-heading">
+        <h2 id="matrix-heading"></h2>
+        <div class="table-scroll">
+          <table id="matrix" class="matrix">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="detail-section" aria-labelledby="detail-heading">
+        <h2 id="detail-heading"></h2>
+        <div id="detail" class="detail">
+          <p id="detail-hint" class="hint"></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Hypothetical: a synthetic incident run through a curated set of channels,
+         showing what would and would not work before the incident exists. -->
+    <section id="hypothetical-section" class="band" aria-labelledby="hypothetical-heading">
+      <h2 id="hypothetical-heading"></h2>
+      <p id="hypothetical-lede" class="section-intro"></p>
+      <div id="hypothetical" class="card-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="footer-note" class="asof"></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

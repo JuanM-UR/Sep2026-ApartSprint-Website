@@ -1,0 +1,287 @@
+{
+  "meta": {
+    "asOf": "2026-09-13",
+    "researchUrl": "",
+    "note": "researchUrl is the Apart publication link; empty until published."
+  },
+  "featured": [
+    { "case": "hf", "instrument": "sb53", "headlineKey": "featured.hf_sb53.headline" },
+    { "case": "wiki", "instrument": "eu_art55", "headlineKey": "featured.wiki_eu_art55.headline" }
+  ],
+  "hypothetical": {
+    "case": "hypo_injury",
+    "cards": [
+      { "instrument": "sb53",     "headlineKey": "hypo.sb53.headline" },
+      { "instrument": "eu_art55", "headlineKey": "hypo.eu_art55.headline" },
+      { "instrument": "eu_art85", "headlineKey": "hypo.eu_art85.headline" }
+    ]
+  },
+  "axes": [
+    { "id": "filer",      "kind": "condition", "labelKey": "axis.filer.label",      "descKey": "axis.filer.desc" },
+    { "id": "threshold",  "kind": "condition", "labelKey": "axis.threshold.label",  "descKey": "axis.threshold.desc" },
+    { "id": "visibility", "kind": "condition", "labelKey": "axis.visibility.label", "descKey": "axis.visibility.desc" },
+    { "id": "legalBasis", "kind": "fact",      "labelKey": "axis.legalBasis.label", "descKey": "axis.legalBasis.desc" },
+    { "id": "authority",  "kind": "fact",      "labelKey": "axis.authority.label",  "descKey": "axis.authority.desc" }
+  ],
+  "instruments": [
+    {
+      "id": "eu_art55",
+      "nameKey": "instrument.eu_art55.name",
+      "sourceUrl": "https://artificialintelligenceact.eu/article/55/",
+      "asOf": "2026-09-11",
+      "encoded": true,
+      "entryPoint": "provider",
+      "publicOutput": false,
+      "anonymity": false,
+      "shield": null,
+      "legalEffect": true,
+      "legalBasisKey": "instrument.eu_art55.law",
+      "authorityKey": "instrument.eu_art55.authority",
+      "gates": [
+        { "axis": "filer",      "scope": "instrument", "failure": "locked" },
+        { "axis": "threshold",  "scope": "case", "noteKey": "gate.eu_art55.threshold.note" },
+        { "axis": "visibility", "scope": "instrument", "failure": "confidential" }
+      ]
+    },
+    {
+      "id": "eu_art85",
+      "nameKey": "instrument.eu_art85.name",
+      "sourceUrl": "https://artificialintelligenceact.eu/article/85/",
+      "asOf": "2026-09-11",
+      "encoded": true,
+      "entryPoint": "any_person",
+      "publicOutput": false,
+      "anonymity": false,
+      "shield": null,
+      "legalEffect": true,
+      "legalBasisKey": "instrument.eu_art85.law",
+      "authorityKey": "instrument.eu_art85.authority",
+      "gates": [
+        { "axis": "filer", "scope": "instrument", "pass": true },
+        {
+          "axis": "threshold",
+          "scope": "case",
+          "noteKey": "gate.eu_art85.threshold.note",
+          "noteCitation": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/"
+        },
+        { "axis": "visibility", "scope": "instrument", "failure": "confidential" }
+      ]
+    },
+    {
+      "id": "eu_art89_2",
+      "nameKey": "instrument.eu_art89_2.name",
+      "sourceUrl": "https://digital-strategy.ec.europa.eu/en/miscellaneous/complaints-channel-downstream-providers-using-general-purpose-ai-models",
+      "asOf": "2026-09-11",
+      "encoded": true,
+      "entryPoint": "downstream_provider",
+      "publicOutput": false,
+      "anonymity": false,
+      "shield": null,
+      "legalEffect": true,
+      "legalBasisKey": "instrument.eu_art89_2.law",
+      "authorityKey": "instrument.eu_art89_2.authority",
+      "gates": [
+        { "axis": "filer",      "scope": "instrument", "failure": "locked" },
+        { "axis": "threshold",  "scope": "case", "noteKey": "gate.eu_art89_2.threshold.note" },
+        { "axis": "visibility", "scope": "instrument", "failure": "confidential" }
+      ]
+    },
+    {
+      "id": "eu_whistleblower",
+      "nameKey": "instrument.eu_whistleblower.name",
+      "sourceUrl": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-whistleblower-tool",
+      "asOf": "2026-09-11",
+      "encoded": true,
+      "entryPoint": "insider",
+      "publicOutput": false,
+      "anonymity": true,
+      "shield": "dir_2019_1937",
+      "legalEffect": true,
+      "legalBasisKey": "instrument.eu_whistleblower.law",
+      "authorityKey": "instrument.eu_whistleblower.authority",
+      "gates": [
+        { "axis": "filer",      "scope": "instrument", "failure": "locked" },
+        { "axis": "visibility", "scope": "instrument", "failure": "confidential" }
+      ]
+    },
+    {
+      "id": "sb53",
+      "nameKey": "instrument.sb53.name",
+      "sourceUrl": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53",
+      "asOf": "2026-09-11",
+      "encoded": true,
+      "entryPoint": "any_person",
+      "publicOutput": false,
+      "anonymity": false,
+      "shield": null,
+      "legalEffect": true,
+      "legalBasisKey": "instrument.sb53.law",
+      "authorityKey": "instrument.sb53.authority",
+      "gates": [
+        { "axis": "filer", "scope": "instrument", "pass": true },
+        { "axis": "threshold",  "scope": "case", "noteKey": "gate.sb53.threshold.note", "noteCitation": "https://www.politico.com/news/2026/08/21/openai-calls-for-stronger-ai-laws-in-california-01046512" },
+        { "axis": "visibility", "scope": "instrument", "failure": "confidential" }
+      ]
+    },
+    {
+      "id": "public_db",
+      "nameKey": "instrument.public_db.name",
+      "sourceUrl": "https://incidentdatabase.ai/",
+      "asOf": "2026-09-11",
+      "encoded": true,
+      "entryPoint": "any_person",
+      "publicOutput": true,
+      "anonymity": true,
+      "shield": null,
+      "legalEffect": false,
+      "legalBasisKey": "instrument.public_db.law",
+      "authorityKey": "instrument.public_db.authority",
+      "gates": [
+        { "axis": "filer",      "scope": "instrument", "pass": true },
+        { "axis": "threshold",  "scope": "instrument", "pass": true },
+        { "axis": "visibility", "scope": "instrument", "pass": true }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "hf",
+      "nameKey": "case.hf.name",
+      "summaryKey": "case.hf.summary",
+      "effects": ["unauthorized_access", "credential_use", "data_exposure"],
+      "sources": [
+        "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+        "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+        "https://www.politico.com/news/2026/08/21/openai-calls-for-stronger-ai-laws-in-california-01046512"
+      ],
+      "verdicts": {
+        "eu_art55": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art85": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art89_2": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "sb53": {
+          "threshold": { "value": "below", "citation": "https://www.politico.com/news/2026/08/21/openai-calls-for-stronger-ai-laws-in-california-01046512", "noteKey": "case.hf.sb53.threshold.note" }
+        }
+      }
+    },
+    {
+      "id": "wiki",
+      "nameKey": "case.wiki.name",
+      "summaryKey": "case.wiki.summary",
+      "effects": ["content_manipulation", "impersonation", "unauthorized_writes"],
+      "sources": [
+        "https://collusion.wiki/",
+        "https://thenextweb.com/news/openai-confirms-wiki-incident-misalignment-disclosure-framework-reuters-kept-hidden-gpai-code-of-practice-gap-ai-office",
+        "https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-incident-disclosure-gap-eu-ai-act-20260/"
+      ],
+      "verdicts": {
+        "eu_art55": {
+          "threshold": { "value": "below", "citation": "https://thenextweb.com/news/openai-confirms-wiki-incident-misalignment-disclosure-framework-reuters-kept-hidden-gpai-code-of-practice-gap-ai-office" }
+        },
+        "eu_art85": {
+          "threshold": { "value": "below", "citation": "https://thenextweb.com/news/openai-confirms-wiki-incident-misalignment-disclosure-framework-reuters-kept-hidden-gpai-code-of-practice-gap-ai-office" }
+        },
+        "eu_art89_2": {
+          "threshold": { "value": "below", "citation": "https://thenextweb.com/news/openai-confirms-wiki-incident-misalignment-disclosure-framework-reuters-kept-hidden-gpai-code-of-practice-gap-ai-office" }
+        },
+        "sb53": {
+          "threshold": { "value": "below", "citation": "https://www.politico.com/news/2026/08/21/openai-calls-for-stronger-ai-laws-in-california-01046512" }
+        }
+      }
+    },
+    {
+      "id": "victims",
+      "nameKey": "case.victims.name",
+      "summaryKey": "case.victims.summary",
+      "effects": ["unauthorized_access", "credential_use"],
+      "sources": [
+        "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+      ],
+      "verdicts": {
+        "eu_art55": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art85": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art89_2": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "sb53": {
+          "threshold": { "value": "below", "citation": "https://www.politico.com/news/2026/08/21/openai-calls-for-stronger-ai-laws-in-california-01046512" }
+        }
+      }
+    },
+    {
+      "id": "anthropic",
+      "nameKey": "case.anthropic.name",
+      "summaryKey": "case.anthropic.summary",
+      "effects": ["unauthorized_access", "package_publication", "wrong_target", "mass_scanning", "data_exposure"],
+      "sources": [
+        "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+        "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"
+      ],
+      "verdicts": {
+        "eu_art55": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art85": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art89_2": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "sb53": {
+          "threshold": { "value": "below", "citation": "https://www.politico.com/news/2026/08/21/openai-calls-for-stronger-ai-laws-in-california-01046512" }
+        }
+      }
+    },
+    {
+      "id": "rubygems",
+      "nameKey": "case.rubygems.name",
+      "summaryKey": "case.rubygems.summary",
+      "effects": ["package_publication", "credential_use"],
+      "sources": [
+        "https://www.rubyhack.ai/"
+      ],
+      "verdicts": {
+        "eu_art55": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art85": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "eu_art89_2": {
+          "threshold": { "value": "below", "citationPending": true }
+        },
+        "sb53": {
+          "threshold": { "value": "below", "citation": "https://www.politico.com/news/2026/08/21/openai-calls-for-stronger-ai-laws-in-california-01046512" }
+        }
+      }
+    },
+    {
+      "id": "hypo_injury",
+      "hypothetical": true,
+      "nameKey": "case.hypo_injury.name",
+      "summaryKey": "case.hypo_injury.summary",
+      "effects": ["bodily_injury", "loss_of_control"],
+      "sources": [],
+      "verdicts": {
+        "sb53": {
+          "threshold": { "value": "meets", "citationPending": true, "noteKey": "case.hypo_injury.threshold.note" }
+        },
+        "eu_art55": {
+          "threshold": { "value": "meets", "citationPending": true, "noteKey": "case.hypo_injury.threshold.note" }
+        },
+        "eu_art85": {
+          "threshold": { "value": "meets", "citationPending": true, "noteKey": "case.hypo_injury.threshold.note" }
+        }
+      }
+    }
+  ]
+}

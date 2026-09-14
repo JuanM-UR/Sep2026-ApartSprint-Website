@@ -1,0 +1,12 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Development notes — not part of the published site; they reference the
+# internal research logs, which are not in this repository.
+SOURCES-TODO.md
+prose-draft.md
+
+# OS / editor
+.DS_Store
+Thumbs.db

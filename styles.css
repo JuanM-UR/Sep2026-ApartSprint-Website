@@ -1,0 +1,219 @@
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #5f6368;
+  --line: #d9dade;
+  --red: #b3261e;
+  --amber: #9a5b00;
+  --grey: #5b6570;
+  --green: #1b5e20;
+  --card: #ffffff;
+  --radius: 6px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* --- Section bands (placeholder colours; swap freely) --------------- */
+  --slant: 64px;        /* horizontal run of the top-left diagonal */
+  --slant-y: 22px;      /* vertical drop of the top-left diagonal */
+  --band-header:       #14161b;
+  --band-featured:     #d9eef1;
+  --band-map:          #e3e7f7;
+  --band-hypothetical: #fbe3e3;
+  --band-footer:       #14161b;
+  --fg-invert:         #eef0f2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--fg);
+  background: #0b0c0f;
+  line-height: 1.5;
+}
+
+/* Full-bleed bands. Content is centered by padding rather than a max-width
+   wrapper, so every band's colour reaches the viewport edges. Each band is
+   clipped at the top-left and overlaps the band above it, so the diagonal
+   reveals that band's colour rather than a dark gap. The extra vertical
+   padding compensates for the overlap (otherwise content sits too close to
+   the seam). */
+main { display: block; margin-top: calc(-1 * var(--slant-y)); }
+
+.band {
+  background: var(--band, var(--card));
+  padding: calc(1.75rem + var(--slant-y)) max(1.25rem, calc((100% - 1100px) / 2));
+  clip-path: polygon(0 var(--slant-y), var(--slant) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Bands butt against each other: no gap, the diagonal is the whole edge. */
+main > .band + .band { margin-top: calc(-1 * var(--slant-y)); }
+
+#featured-section     { --band: var(--band-featured); }
+#map-section          { --band: var(--band-map); }
+#hypothetical-section { --band: var(--band-hypothetical); }
+
+/* The legend, matrix, and detail share one band: space them with margins. */
+#map-section > section + section { margin-top: 1.5rem; }
+
+.site-header {
+  background: var(--band-header);
+  color: var(--fg-invert);
+  padding: 2rem max(1.25rem, calc((100% - 1100px) / 2)) calc(1.5rem + var(--slant-y));
+}
+
+footer {
+  background: var(--band-footer);
+  color: #aab1bb;
+  padding: calc(2rem + var(--slant-y)) max(1.25rem, calc((100% - 1100px) / 2)) 3rem;
+  margin-top: calc(-1 * var(--slant-y));
+  clip-path: polygon(0 var(--slant-y), var(--slant) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Header/footer sit on dark bands, so their text needs the inverse colour. */
+.site-header .subtitle { color: var(--fg-invert); }
+.site-header .asof { color: #aab1bb; }
+.site-header .research a { color: #8ab4f8; }
+
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+h1 { font-size: 1.5rem; margin: 0 0 .5rem; }
+h2 { font-size: 1.1rem; margin: 0 0 .75rem; }
+
+.subtitle { margin: .25rem 0 .5rem; color: var(--fg); }
+
+/* Fill-in lede above each section's content. */
+.section-intro { max-width: 72ch; margin: 0 0 1rem; color: var(--muted); }
+.research { margin: .25rem 0; }
+.research a { color: #0b57d0; }
+.asof { color: var(--muted); font-size: .85rem; margin: .25rem 0; }
+
+.lang-toggle {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: .35rem .7rem;
+  font: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.lang-toggle:hover { background: #f0f1f3; }
+
+.legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .9rem;
+  padding: 0;
+  margin: 0;
+}
+.legend li { display: flex; align-items: center; gap: .4rem; font-size: .9rem; }
+
+.swatch {
+  width: 14px; height: 14px; border-radius: 3px; display: inline-block;
+  border: 1px solid rgba(0,0,0,.15);
+}
+
+.table-scroll { overflow-x: auto; }
+
+.matrix {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--card);
+  font-size: .85rem;
+}
+.matrix th, .matrix td { border: 1px solid var(--line); padding: .4rem .45rem; }
+.matrix thead th { vertical-align: bottom; font-weight: 600; text-align: left; }
+.matrix thead th.case-col { min-width: 190px; }
+.matrix tbody th {
+  text-align: left; font-weight: 600; position: sticky; left: 0;
+  background: var(--card); min-width: 190px;
+}
+.matrix td { padding: 0; }
+.matrix tbody tr + tr > * { border-top: 2px solid #9aa0a6; }
+
+.cell {
+  cursor: pointer;
+  padding: .5rem .4rem;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  font-weight: 600;
+}
+.cell:hover { outline: 2px solid #0b57d0; outline-offset: -2px; }
+.cell:focus-visible { outline: 3px solid #0b57d0; outline-offset: -3px; }
+.cell.selected { box-shadow: inset 0 0 0 3px #0b57d0; }
+
+.cat-fileable  { background: var(--green); }
+.cat-locked    { background: var(--red); }
+.cat-contested { background: var(--amber); }
+.cat-other     { background: var(--grey); }
+.cat-na        { background: transparent; border: 1.5px dashed var(--muted); }
+
+.detail {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+.hint { color: var(--muted); margin: 0; }
+
+.detail h3 { margin: 0 0 .25rem; font-size: 1rem; }
+.detail .case-summary { color: var(--muted); margin: .25rem 0 .75rem; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.card-grid .featured-card { margin: 0; }
+
+.featured-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--grey);
+  border-radius: var(--radius);
+  padding: 1rem 1.15rem;
+  margin: .5rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+}
+.featured-card.cat-fileable-edge  { border-top-color: var(--green); }
+.featured-card.cat-locked-edge    { border-top-color: var(--red); }
+.featured-card.cat-contested-edge { border-top-color: var(--amber); }
+.featured-card.cat-other-edge     { border-top-color: var(--grey); }
+.featured-title { margin: 0 0 .35rem; font-size: 1.15rem; }
+.featured-headline { font-size: 1rem; margin: .25rem 0 .5rem; }
+
+.status-line { display: flex; align-items: center; gap: .5rem; margin: .75rem 0; }
+.status-label { font-weight: 600; }
+
+.chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: .4rem 0 .8rem; }
+.chip {
+  background: #eef0f2; border: 1px solid var(--line); border-radius: 999px;
+  padding: .1rem .6rem; font-size: .8rem;
+}
+
+.failure-list { list-style: none; padding: 0; margin: .3rem 0 0; }
+.failure-list li {
+  padding: .5rem 0; border-top: 1px solid var(--line);
+}
+.failure-list li:first-child { border-top: 0; }
+.gate-line { display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
+.gate-note { color: var(--muted); font-size: .85rem; margin: .35rem 0 .1rem; }
+.failure-axis { font-weight: 600; }
+.failure-outcome { color: var(--muted); }
+.failure-citation { font-size: .85rem; }
+.failure-citation a { color: #0b57d0; }
+.source-pending { color: var(--muted); font-style: italic; }
+
+/* Facts (Governing law / Run by): informative rows, no pass/fail swatch. */
+.fact-line { display: flex; align-items: baseline; gap: .45rem; flex-wrap: wrap; }
+.fact-axis { font-weight: 600; color: var(--muted); }
+.fact-value { flex: 1 1 12rem; }
+
+/* footer padding lives with the band rules above */
