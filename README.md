@@ -55,5 +55,4 @@ Split by content type:
   Commons Attribution 4.0 International (CC BY 4.0)**
   (<https://creativecommons.org/licenses/by/4.0/>): reuse freely, with attribution.
 
-When the public repository is created, commit the two texts as `LICENSE` (MIT) and
-`LICENSE-CONTENT` (CC BY 4.0).
+The two texts are committed as `LICENSE` (MIT) and `LICENSE-CONTENT` (CC BY 4.0).
