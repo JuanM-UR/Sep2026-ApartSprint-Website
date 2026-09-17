@@ -2,7 +2,7 @@
 
 As part of a 3-day Apart AI incident response sprint, our group found that existing regulatory systems aren’t suitable to report real incidents caused by AI agents, like the Hugging Face attack or the DSEwiki incident.
 
-This repo holds the code for a complementary website that visually aggregates the evidence that we collected. For more information, please refer to the paper at *placeholder*
+This repo holds the code for a complementary website that visually aggregates the evidence that we collected. For more information, please refer to the paper at https://apartresearch.com/project/limitations-in-existing-regulatory-mechanisms-when-applied-to-attacks-by-ai-agents-5olx 
 
 ## Running it locally
 
